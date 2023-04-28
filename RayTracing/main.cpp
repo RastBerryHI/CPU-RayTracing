@@ -1,5 +1,5 @@
-#include <iostream>
 #include <fstream>
+#include "Graphics/FVector.h"
 
 int main(int argc, char* argv[])
 {
@@ -18,12 +18,15 @@ int main(int argc, char* argv[])
     {
         for (int i = 0; i < nx; i++)
         {
-            float r = float(i) / float(nx);
-            float g = float(j) / float (ny);
-            float b = 0.2;
-            int ir = int(255.99*r);
-            int ig = int(255.99*g);
-            int ib = int(255.99*b);
+            Graphics::FVector Color(
+                static_cast<float>(i) / static_cast<float>(nx),
+                static_cast<float>(j) / static_cast<float>(ny),
+                0.2f
+            );
+            
+            int ir = static_cast<int>(255.99f * Color[0]);
+            int ig = static_cast<int>(255.99f* Color[1]);
+            int ib = static_cast<int>(255.99f * Color[2]);
             
             writestream<< ir << " " << ig << " " << ib << "\n";
         }
