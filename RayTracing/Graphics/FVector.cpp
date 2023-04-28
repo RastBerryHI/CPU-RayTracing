@@ -4,6 +4,7 @@ using namespace Graphics;
 
 FVector::~FVector()
 {
+    delete[] e;
 }
 
 FVector FVector::operator/(const FVector& v) const
